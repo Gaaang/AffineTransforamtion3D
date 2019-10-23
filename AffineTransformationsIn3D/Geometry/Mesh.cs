@@ -8,9 +8,9 @@ namespace AffineTransformationsIn3D.Geometry
 {
     public class Mesh : IDrawable
     {
-        public Vector[] Coordinates { get; set; }
-		public int[][] Indices { get; set; }
-        public virtual Vector Center
+        public Vector[] Coordinates { get; set; }//координаты фигуры
+		public int[][] Indices { get; set; }// индексы
+        public virtual Vector Center//центр фигуры
         {
             get
             {
@@ -28,21 +28,17 @@ namespace AffineTransformationsIn3D.Geometry
             }
         }
 
-        public Mesh(Vector[] vertices, int[][] indices)
+        public Mesh(Vector[] vertices, int[][] indices)//конструктор
         {
             Coordinates = vertices;
             Indices = indices;
         }
 
-        
-
-        public virtual void Apply(Matrix transformation)
+        public virtual void Apply(Matrix transformation)//применить матрицу к координатам
         {
             for (int i = 0; i < Coordinates.Length; ++i)
                 Coordinates[i] *= transformation;
         }
-
-
 
         public virtual void Draw(Graphics3D graphics)
         {

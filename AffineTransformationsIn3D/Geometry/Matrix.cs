@@ -61,11 +61,5 @@ namespace AffineTransformationsIn3D.Geometry
             }
             return result;
         }
-
-
-
-
-
-
     }
 }

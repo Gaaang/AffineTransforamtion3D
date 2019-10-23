@@ -7,14 +7,9 @@ namespace AffineTransformationsIn3D.Geometry
 {
     public class Graphics3D
     {
-
-
-
         // Буфер цвета.
         private Bitmap colorBuffer;
-
         private BitmapData bitmapData;
-
         private SceneView sceneView;
         private Matrix viewProjection;
 
