@@ -5,11 +5,11 @@ using System;
 
 namespace AffineTransformationsIn3D
 {
-    //создаем свой класс для визуального представления
     public class SceneView : Control
     {
         public Camera Camera { get; set; }
         public IDrawable Drawable { get; set; }
+
         public Graphics3D Graphics3D { get; private set; }
 
         public SceneView() : base()

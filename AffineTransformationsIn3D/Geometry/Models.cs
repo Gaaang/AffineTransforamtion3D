@@ -80,66 +80,7 @@ namespace AffineTransformationsIn3D.Geometry
             return new Mesh(vertices, indices);
         }
 
-        public static Mesh Plot(
-            double x0, double x1, double dx, double z0, double z1, double dz,
-            Func<double, double, double> function, double AngleX = Math.PI/4,
-			double AngleY = Math.PI / 2, double AngleZ = Math.PI / 4)
-        {
-            int nx = (int)((x1 - x0) / dx);
-            int nz = (int)((z1 - z0) / dz);
-            var vertices = new Vector[nx * nz];
-            var indices = new int[(nx - 1) * (nz - 1)][];
-            for (int i = 0; i < nx; ++i)
-                for (int j = 0; j < nz; ++j)
-                {
-                    var x = x0 + dx * i;
-                    var z = z0 + dz * j;
-                    vertices[i * nz + j] = new Vector(x, function(x, z), z);
-                }
-            for (int i = 0; i < nx - 1; ++i)
-                for (int j = 0; j < nz - 1; j++)
-                {
-                    indices[i * (nz - 1) + j] = new int[4] {
-                        i * nz + j,
-                        (i + 1) * nz + j,
-                        (i + 1) * nz + j + 1,
-                        i * nz + j + 1
-                    };
-                }
-
-			Mesh m = new Mesh(vertices, indices);
-
-			m.Apply(Transformations.RotateX(-AngleX) *
-					Transformations.RotateY(0) *
-					Transformations.RotateZ(0));
-
-			m.Apply(Transformations.RotateX(0) *
-					Transformations.RotateY(0) *
-					Transformations.RotateZ(-AngleZ));
-			
-			m.Apply(Transformations.RotateX(0) *
-					Transformations.RotateY(-AngleY) *
-					Transformations.RotateZ(0));
-
-			
-
-			
-
-
-			m.Apply(Transformations.RotateX(0) *
-					Transformations.RotateY(AngleY) *
-					Transformations.RotateZ(0));
-
-			m.Apply(Transformations.RotateX(0) *
-					Transformations.RotateY(0) *
-					Transformations.RotateZ(AngleZ));
-
-			m.Apply(Transformations.RotateX(AngleX) *
-					Transformations.RotateY(0) *
-					Transformations.RotateZ(0));
-
-			return m;
-        }
+     
 
    
 

@@ -44,22 +44,11 @@ namespace AffineTransformationsIn3D.Geometry
             return new Matrix(data);
         }
 
-        private static double[,] Exclude(double[,] matrix, int row, int col)
-        {
-            int n = matrix.GetLength(0);
-            double[,] result = new double[n - 1, n - 1];
-            for (int r = 0; r < n; ++r)
-            {
-                if (r == row) continue;
-                int i = r - (r < row ? 0 : 1);
-                for (int c = 0; c < n; ++c)
-                {
-                    if (c == col) continue;
-                    int j = c - (c < col ? 0 : 1);
-                    result[i, j] = matrix[r, c];
-                }
-            }
-            return result;
-        }
+
+
+
+
+
+
     }
 }
